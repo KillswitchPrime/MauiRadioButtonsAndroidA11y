@@ -16,7 +16,37 @@
                     StrokeShape="RoundRectangle 10"
                     Padding="10"
                     WidthRequest="100"
-                    HeightRequest="100">
+                    HeightRequest="140">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CheckedStates">
+                                <VisualState x:Name="Checked">
+                                    <VisualState.Setters>
+                                        <Setter Property="Stroke"
+                                                Value="#FF3300" />
+                                        <Setter Property="StrokeThickness"
+                                                Value="3" />
+                                        <Setter TargetName="Check"
+                                                Property="Opacity"
+                                                Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"
+                                                Value="Transparent" />
+                                        <Setter Property="Stroke"
+                                                Value="Gray" />
+                                        <Setter Property="StrokeThickness"
+                                                Value="2" />
+                                        <Setter TargetName="Check"
+                                                Property="Opacity"
+                                                Value="0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
                     <Grid>
                         <!-- Image area -->
                         <ContentPresenter/>
@@ -32,10 +62,11 @@
                                 Fill="White"/>
                             <!-- Inner filled dot (visible only when checked) -->
                             <Ellipse 
+                                x:Name="Check"
                                 WidthRequest="12"
                                 HeightRequest="12"
                                 Fill="Green"
-                                IsVisible="{TemplateBinding IsChecked}"/>
+                                Opacity="0"/>
                         </Grid>
                     </Grid>
                 </Border>
